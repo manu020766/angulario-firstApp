@@ -1,0 +1,15 @@
+<div class="cartContainer"  *ngIf="cartItems.length > 0; else noData">
+    <h2>Productos en el carro</h2>
+    
+    <div class="productContainer">
+      <div *ngFor="let cartItem of cartItems; index as productNumber" class="productRow">
+          <div>Nombre: {{cartItem.name}}</div> 
+          <div>Price: {{cartItem.price | currency:"EUR"}}</div>
+        </div>
+    </div>
+</div>
+<ng-template #noData>
+    <div><h2>El carro está vacio</h2></div>
+</ng-template>
+
+

@@ -12,6 +12,7 @@ import { ProductListComponent } from './product-list/product-list.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ProductAlertsComponent } from './product-alerts/product-alerts.component';
 import { ProductDetailsComponent } from './product-details/product-details.component';
+import { CartComponent } from './cart/cart.component';
 
 registerLocaleData(localeES);
 
@@ -21,13 +22,16 @@ registerLocaleData(localeES);
     TopBarComponent,
     ProductListComponent,
     ProductAlertsComponent,
-    ProductDetailsComponent
+    ProductDetailsComponent,
+    CartComponent
   ],
   imports: [
     BrowserModule,
     RouterModule.forRoot([
       {path: '', component: ProductListComponent},
-      {path: 'product-details/:id', component: ProductDetailsComponent}
+      {path: 'product-details/:id', component: ProductDetailsComponent},
+      {path: 'cart', component: CartComponent},
+      {path: '**', redirectTo: ''}
     ]),
     BrowserAnimationsModule
   ],
