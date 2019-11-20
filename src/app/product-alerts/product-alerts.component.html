@@ -1,0 +1,5 @@
+<button *ngIf="product.price > 700"
+    style="background-color: orange;"
+    (click)="emitNotify(product.name)"
+    >Notify Me
+</button>
