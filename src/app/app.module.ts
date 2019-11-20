@@ -20,14 +20,16 @@ registerLocaleData(localeES);
     AppComponent,
     TopBarComponent,
     ProductListComponent,
-    ProductAlertsComponent
+    ProductAlertsComponent,
+    ProductDetailsComponent
   ],
   imports: [
     BrowserModule,
     RouterModule.forRoot([
-      {path: '', component: ProductListComponent}
+      {path: '', component: ProductListComponent},
+      {path: 'product-details/:id', component: ProductDetailsComponent}
     ]),
-    BrowserAnimationsModule,
+    BrowserAnimationsModule
   ],
   providers: [{ provide: LOCALE_ID, useValue: 'es' }],
   bootstrap: [AppComponent]
