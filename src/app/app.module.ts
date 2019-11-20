@@ -1,12 +1,19 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule, Component } from '@angular/core';
+import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
+
+import { LOCALE_ID } from '@angular/core';
+import { registerLocaleData } from '@angular/common';
+import localeES from '@angular/common/locales/es';
 
 import { AppComponent } from './app.component';
 import { TopBarComponent } from './top-bar/top-bar.component';
 import { ProductListComponent } from './product-list/product-list.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ProductAlertsComponent } from './product-alerts/product-alerts.component';
+import { ProductDetailsComponent } from './product-details/product-details.component';
+
+registerLocaleData(localeES);
 
 @NgModule({
   declarations: [
@@ -22,7 +29,7 @@ import { ProductAlertsComponent } from './product-alerts/product-alerts.componen
     ]),
     BrowserAnimationsModule,
   ],
-  providers: [],
+  providers: [{ provide: LOCALE_ID, useValue: 'es' }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
