@@ -1,6 +1,9 @@
-<div *ngIf="product">
+<div *ngIf="product; else noData">
         <p style="color:#1976d2; font-size: 1.5rem; margin-block-end: 0.1em;">{{ product.name }}</p>
         <P style="font-size: 2rem;margin-block-end: 0.3em;margin-block-start: 0.1em;">{{product.price | currency:'EUR' }}</P>
         <p><strong>Description:</strong> {{ product.description }}</p>
+
+        <button (click)="buyProduct(product)">Buy</button>
       
 </div>
+<ng-template #noData><h2>Producto No Disponible</h2> </ng-template>

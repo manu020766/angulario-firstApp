@@ -1,0 +1,32 @@
+<div class="cartContainer"  *ngIf="cartItems.length > 0; else noData">
+    <h2>Productos en el carro</h2>
+
+    <p>
+        <a routerLink="/shipping">Shipping prices</a>
+    </p>
+    
+    <div class="productContainer">
+      <div *ngFor="let cartItem of cartItems; index as productNumber" class="productRow">
+          <div>Nombre: {{cartItem.name}}</div> 
+          <div>Price: {{cartItem.price | currency:"EUR"}}</div>
+        </div>
+    </div>
+
+    <form id="checkoutForm" [formGroup]='checkoutForm' (ngSubmit)="onSubmit(checkoutForm.value)">
+        <div>
+            <label for="name">Name: </label>
+            <input id="name" type="text" formControlName="name">
+        </div>
+        <div>
+            <label for="adress">Adress: </label>
+            <input id="adress" type="text" formControlName="adress">
+        </div>
+
+        <button class="button" type="submit">Purchase</button>
+    </form>
+</div>
+<ng-template #noData>
+    <div><h2>El carro está vacio</h2></div>
+</ng-template>
+
+
